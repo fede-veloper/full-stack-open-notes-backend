@@ -60,7 +60,7 @@ app.get('/notes/:id', (req, res) => {
 app.post('/notes', (req, res) => { 
     const body = req.body;
 
-    if (!note.content) {
+    if (!body.content) {
         return res.status(400).json({error: 'content missing'});
     }
 
@@ -72,7 +72,7 @@ app.post('/notes', (req, res) => {
     }
 
     notes = notes.concat(note);
-    res.json(note);
+    res.send(note);
 });
 
 const generateId = () => {
